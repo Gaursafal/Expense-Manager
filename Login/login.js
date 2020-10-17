@@ -36,11 +36,10 @@ function verifyEmail(email){
 //verify the password
 function varifyAccount(email,pswd){
     var all_users=JSON.parse(localStorage.getItem("expense_users"))
-    console.log(all_users);
     for(var i=0;i<all_users.length;i++){
         if(all_users[i].email==email && all_users[i].pswd==pswd){
-            alert("hai")
             //redirect user to dashboard
+            storeUserData(email)
             window.location.href="file:///E:/masai_school/expenceManager/Project-Module3/Dashboard/dash.html"
         }
         else if(all_users[i].email==email && all_users[i].pswd != pswd){
@@ -50,4 +49,16 @@ function varifyAccount(email,pswd){
             return
         }
     }
+}
+
+function storeUserData(email){
+    var all_users=JSON.parse(localStorage.getItem("expense_users"))
+    var current_user;
+    for(var i=0;i<all_users.length;i++){
+        if(all_users[i].email==email){
+            current_user=all_users[i]
+        }
+    }
+    console.log(current_user);
+    localStorage.setItem("current_user",JSON.stringify(current_user))
 }
