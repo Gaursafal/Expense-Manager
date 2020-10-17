@@ -5,6 +5,7 @@ window.addEventListener("load",function(){
     var form=document.getElementById("form")
     cont=document.getElementById("cont")
     form.addEventListener("submit",handleRegistration)
+
 })
 
 function handleRegistration(){
@@ -42,9 +43,6 @@ function handleRegistration(){
 
     
     
-
-   
-
     //store user data in localstorage
     storeThedata(uname,email,pswd)
 
@@ -106,7 +104,7 @@ function storeThedata(name,email,pswd){
         name:name,
         email:email,
         pswd:pswd,
-        transactions:[]
+        Transactions:[]
 
     }
     var all_users=JSON.parse(localStorage.getItem("expense_users"))
